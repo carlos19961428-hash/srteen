@@ -1,0 +1,27 @@
+{
+  "appTitle": "شبكة SRTEEN الاجتماعية",
+  "feedTitle": "آخر الأخبار",
+  "liveTitle": "مباشر",
+  "profileTitle": "الملف الشخصي",
+  "settingsTitle": "الإعدادات",
+  "selectLanguage": "اختر اللغة",
+  "feedShortsHeading": "فيديوهات قصيرة",
+  "feedLiveHeading": "البث المباشر",
+  "postBy": "نشر بواسطة {{author}} في {{date}}",
+  "noFeed": "لا يوجد محتوى"
+  ,
+  "loginTitle": "تسجيل الدخول",
+  "signupTitle": "إنشاء حساب",
+  "usernameLabel": "اسم المستخدم",
+  "passwordLabel": "كلمة المرور",
+  "loginButton": "تسجيل الدخول",
+  "signupButton": "إنشاء حساب",
+  "signupSuccess": "تم التسجيل بنجاح! الرجاء تسجيل الدخول.",
+  "loginSuccess": "تم تسجيل الدخول بنجاح",
+  "errorInvalidCredentials": "اسم المستخدم أو كلمة المرور غير صحيحة",
+  "errorUserExists": "اسم المستخدم موجود بالفعل",
+  "errorMissingFields": "يرجى ملء جميع الحقول"
+  ,
+  "signupLinkText": "لا تملك حسابًا؟ قم بإنشاء حساب",
+  "loginLinkText": "لديك حساب بالفعل؟ تسجيل الدخول"
+}

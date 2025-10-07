@@ -1,0 +1,27 @@
+{
+  "appTitle": "SRTEEN 社交网络",
+  "feedTitle": "动态",
+  "liveTitle": "直播",
+  "profileTitle": "个人资料",
+  "settingsTitle": "设置",
+  "selectLanguage": "选择语言",
+  "feedShortsHeading": "短视频",
+  "feedLiveHeading": "直播流",
+  "postBy": "{{author}} 于 {{date}} 发布",
+  "noFeed": "没有内容可显示"
+  ,
+  "loginTitle": "登录",
+  "signupTitle": "注册",
+  "usernameLabel": "用户名",
+  "passwordLabel": "密码",
+  "loginButton": "登录",
+  "signupButton": "注册",
+  "signupSuccess": "注册成功！请登录。",
+  "loginSuccess": "登录成功",
+  "errorInvalidCredentials": "用户名或密码无效",
+  "errorUserExists": "用户名已存在",
+  "errorMissingFields": "请填写所有字段"
+  ,
+  "signupLinkText": "还没有账号？立即注册",
+  "loginLinkText": "已有账号？登录"
+}
