@@ -1,0 +1,21 @@
+{
+  "name": "srteen-social-network",
+  "version": "1.0.0",
+  "description": "SRTEEN - A social network platform for street culture, live streaming, and short video content",
+  "main": "social_network/server/server.js",
+  "scripts": {
+    "start": "node social_network/server/server.js",
+    "dev": "node social_network/server/server.js"
+  },
+  "keywords": [
+    "social-network",
+    "live-streaming",
+    "short-videos",
+    "street-culture"
+  ],
+  "author": "carlos19961428-hash",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
