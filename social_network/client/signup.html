@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SRTEEN - Sign Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.5;
+    }
+    form {
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      margin-top: 8px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+    }
+    button {
+      margin-top: 12px;
+      padding: 8px 16px;
+    }
+    p {
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="signupTitle">Sign Up</h1>
+  <form id="signupForm">
+    <label id="usernameLabel" for="username">Username</label>
+    <input id="username" type="text" required />
+    <label id="passwordLabel" for="password">Password</label>
+    <input id="password" type="password" required />
+    <button id="signupButton" type="submit">Sign Up</button>
+  </form>
+  <p id="message"></p>
+  <p><a id="loginLink" href="login.html"></a></p>
+  <div>
+    <label id="selectLanguageLabel" for="languageSelect">Select Language</label>
+    <select id="languageSelect">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <option value="pt">Português</option>
+      <option value="zh">中文</option>
+      <option value="ar">العربية</option>
+    </select>
+  </div>
+  <script>
+  (function() {
+    let currentLang = 'en';
+    let translations = {};
+    const signupTitleEl = document.getElementById('signupTitle');
+    const usernameLabelEl = document.getElementById('usernameLabel');
+    const passwordLabelEl = document.getElementById('passwordLabel');
+    const signupButtonEl = document.getElementById('signupButton');
+    const selectLanguageLabelEl = document.getElementById('selectLanguageLabel');
+    const languageSelectEl = document.getElementById('languageSelect');
+    const messageEl = document.getElementById('message');
+    const loginLinkEl = document.getElementById('loginLink');
+
+    function isRTL(lang) {
+      return ['ar', 'he', 'fa', 'ur'].includes(lang);
+    }
+
+    async function loadTranslations(lang) {
+      try {
+        const res = await fetch(`/api/translations?lang=${lang}`);
+        if (res.ok) {
+          translations = await res.json();
+        } else {
+          translations = {};
+        }
+      } catch (err) {
+        console.error('Translation fetch failed:', err);
+        translations = {};
+      }
+    }
+
+    function updateUI() {
+      signupTitleEl.textContent = translations.signupTitle || 'Sign Up';
+      usernameLabelEl.textContent = translations.usernameLabel || 'Username';
+      passwordLabelEl.textContent = translations.passwordLabel || 'Password';
+      signupButtonEl.textContent = translations.signupButton || 'Sign Up';
+      selectLanguageLabelEl.textContent = translations.selectLanguage || 'Select Language';
+      loginLinkEl.textContent = translations.loginLinkText || 'Already have an account? Log in';
+      document.body.dir = isRTL(currentLang) ? 'rtl' : 'ltr';
+    }
+
+    languageSelectEl.addEventListener('change', async function(e) {
+      currentLang = e.target.value;
+      await loadTranslations(currentLang);
+      updateUI();
+    });
+
+    document.getElementById('signupForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      messageEl.textContent = '';
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      if (!username || !password) {
+        messageEl.textContent = translations.errorMissingFields || 'Please fill in all fields';
+        return;
+      }
+      try {
+        const resp = await fetch('/api/auth/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password }),
+        });
+        const json = await resp.json();
+        if (resp.ok) {
+          // resp.status 201 indicates success
+          messageEl.textContent = translations.signupSuccess || 'Registration successful! Please log in.';
+        } else {
+          const errKey = json.error;
+          messageEl.textContent = translations[errKey] || 'Signup failed';
+        }
+      } catch (err) {
+        console.error('Signup failed:', err);
+        messageEl.textContent = 'Signup error';
+      }
+    });
+
+    async function init() {
+      await loadTranslations(currentLang);
+      updateUI();
+    }
+    init();
+  })();
+  </script>
+</body>
+</html>

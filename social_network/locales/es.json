@@ -1,0 +1,27 @@
+{
+  "appTitle": "Red Social SRTEEN",
+  "feedTitle": "Noticias",
+  "liveTitle": "En vivo",
+  "profileTitle": "Perfil",
+  "settingsTitle": "Ajustes",
+  "selectLanguage": "Seleccionar idioma",
+  "feedShortsHeading": "Vídeos cortos",
+  "feedLiveHeading": "Transmisiones en vivo",
+  "postBy": "Publicado por {{author}} el {{date}}",
+  "noFeed": "Sin contenido disponible"
+  ,
+  "loginTitle": "Iniciar sesión",
+  "signupTitle": "Regístrate",
+  "usernameLabel": "Nombre de usuario",
+  "passwordLabel": "Contraseña",
+  "loginButton": "Entrar",
+  "signupButton": "Regístrate",
+  "signupSuccess": "¡Registro exitoso! Por favor inicia sesión.",
+  "loginSuccess": "Inicio de sesión exitoso",
+  "errorInvalidCredentials": "Usuario o contraseña inválidos",
+  "errorUserExists": "El usuario ya existe",
+  "errorMissingFields": "Por favor completa todos los campos"
+  ,
+  "signupLinkText": "¿No tienes una cuenta? Regístrate",
+  "loginLinkText": "¿Ya tienes una cuenta? Inicia sesión"
+}
